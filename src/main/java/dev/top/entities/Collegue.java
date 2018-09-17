@@ -13,6 +13,7 @@ public class Collegue {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
 	private Integer id;
+	private String action;
 	private Integer score;
 	private String name;
 	private String url;
@@ -26,6 +27,14 @@ public class Collegue {
 		this.score = score;
 		this.name = name;
 		this.url = url;
+	}
+
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String action) {
+		this.action = action;
 	}
 
 	public Integer getId() {

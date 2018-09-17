@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,9 +29,16 @@ public class CollegueCtrl {
 	}
 
 	@PatchMapping("/{nom}")
-	public Collegue majCollegue(@PathVariable String nom, Integer score) {
-		collegue.findByName(nom).setScore(score);
+	public Collegue majCollegue(@RequestBody Collegue action, @PathVariable String nom) {
 
+		if (action != null && action.equals("AIMER")) {
+			Integer aimer = collegue.findByName(nom).getScore() + 10;
+			collegue.findByName(nom).setScore(aimer);
+		}
+		if (action != null && action.equals("DETESTER")) {
+			Integer detester = collegue.findByName(nom).getScore() - 5;
+			collegue.findByName(nom).setScore(detester);
+		}
 		return collegue.findByName(nom);
 	}
 
