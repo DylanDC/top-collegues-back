@@ -18,15 +18,15 @@ public class StartupDataInit {
 	public void init() {
 
 		if (this.collegue.count() <= 0) {
-			this.collegue.save(new Collegue(1000, "Djamel",
+			this.collegue.save(new Collegue(0, "Djamel",
 					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
 			this.collegue.save(new Collegue(-1000, "Gaetan",
 					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
 			this.collegue.save(new Collegue(1000, "Flora",
 					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
-			this.collegue.save(new Collegue(700, "Jordan",
+			this.collegue.save(new Collegue(500, "Jordan",
 					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
-			this.collegue.save(new Collegue(900, "Clement",
+			this.collegue.save(new Collegue(-500, "Clement",
 					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
 		}
 
