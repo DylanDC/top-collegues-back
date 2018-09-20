@@ -37,6 +37,11 @@ public class CollegueCtrl {
 
 	}
 
+	@GetMapping("/{nom}")
+	public ResponseEntity<CollegueView> findByName(@PathVariable String nom) {
+		return ResponseEntity.ok(Converters.COLLEGUE_TO_COLLEGUE_VIEW.convert(this.collegueServ.findCollegue(nom)));
+	}
+
 	// *************************************PATCH***********************************************
 	@PatchMapping("/{nom}")
 	public ResponseEntity<CollegueView> patch(@PathVariable String nom, @RequestBody AvisView avis) {

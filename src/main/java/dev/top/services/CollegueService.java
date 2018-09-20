@@ -46,4 +46,10 @@ public class CollegueService {
 			return collegueTrouve;
 		}).orElseThrow(() -> new PseudoInvalideException());
 	}
+
+	public Collegue findCollegue(String name) throws PseudoInvalideException, ServiceExceptions {
+
+		return this.collRepo.findByName(name).orElseThrow(() -> new PseudoInvalideException());
+	}
+
 }
