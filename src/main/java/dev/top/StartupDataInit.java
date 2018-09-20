@@ -18,16 +18,12 @@ public class StartupDataInit {
 	public void init() {
 
 		if (this.collegue.count() <= 0) {
-			this.collegue.save(new Collegue(0, "Aragorn",
-					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
-			this.collegue.save(new Collegue(-1000, "Arwen",
-					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
-			this.collegue.save(new Collegue(1000, "Daeron",
-					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
-			this.collegue.save(new Collegue(500, "Eowyn",
-					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
-			this.collegue.save(new Collegue(-500, "Gandalf",
-					"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1673994/profile/profile-512.jpg?1515254870"));
+			this.collegue.save(new Collegue(0, "Arwen", "https://randomuser.me/api/portraits/women/60.jpg", "8b2d3ac7",
+					"Hahn", "Nellie", "nelliehahn@sultraxin.com", "1978-10-09T05:15:33 -02:00", "female",
+					"442 Tillary Street, Bordelonville, 8990"));
+			this.collegue.save(new Collegue(0, "Daeron", "https://randomuser.me/api/portraits/men/90.jpg", "75e8048c",
+					"Bullock", "Jackson", "jacksonbullock@sultraxin.com", "1971-02-16T08:37:15 -01:00", "male",
+					"289 Gardner Avenue, Gilmore, 7992"));
 		}
 
 	}

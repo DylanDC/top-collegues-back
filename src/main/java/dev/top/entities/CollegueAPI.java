@@ -1,18 +1,6 @@
 package dev.top.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Collegue {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private Integer score;
-	private String name;
-	private String url;
+public class CollegueAPI {
 	private String matricule;
 	private String nom;
 	private String prenom;
@@ -20,18 +8,13 @@ public class Collegue {
 	private String dateNaissance;
 	private String sexe;
 	private String adresse;
+	private String password;
+	private String photo;
+	private String[] subalternes;
 
-	public Collegue() {
+	public CollegueAPI(String matricule, String nom, String prenom, String email, String dateNaissance, String sexe,
+			String adresse, String password, String photo, String[] subalternes) {
 		super();
-	}
-
-	public Collegue( Integer score, String name, String url, String matricule, String nom, String prenom,
-			String email, String dateNaissance, String sexe, String adresse) {
-		super();
-		
-		this.score = score;
-		this.name = name;
-		this.url = url;
 		this.matricule = matricule;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -39,38 +22,13 @@ public class Collegue {
 		this.dateNaissance = dateNaissance;
 		this.sexe = sexe;
 		this.adresse = adresse;
+		this.password = password;
+		this.photo = photo;
+		this.subalternes = subalternes;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getScore() {
-		return score;
-	}
-
-	public void setScore(Integer score) {
-		this.score = score;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
+	public CollegueAPI() {
+		super();
 	}
 
 	public String getMatricule() {
@@ -127,6 +85,30 @@ public class Collegue {
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String[] getSubalternes() {
+		return subalternes;
+	}
+
+	public void setSubalternes(String[] subalternes) {
+		this.subalternes = subalternes;
 	}
 
 }
