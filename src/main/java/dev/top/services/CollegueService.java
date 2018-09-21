@@ -54,19 +54,43 @@ public class CollegueService {
 		return this.collRepo.findByName(name).orElseThrow(() -> new PseudoInvalideException());
 	}
 
-	public Collegue findByMatricule(String mat) throws PseudoInvalideException, ServiceExceptions {
+	public Collegue findByMatricule(String matricule) throws PseudoInvalideException, ServiceExceptions {
 		RestTemplate rest = new RestTemplate();
-		CollegueAPI[] collegueApi = rest.getForObject("http://collegues-api.cleverapps.io/collegues?matricule=" + mat,
-				CollegueAPI[].class);
+		CollegueAPI[] collegueApi = rest.getForObject(
+				"http://collegues-api.cleverapps.io/collegues?matricule=" + matricule, CollegueAPI[].class);
 		Collegue collegue = new Collegue(0, null, collegueApi[0].getPhoto(), collegueApi[0].getMatricule(),
 				collegueApi[0].getNom(), collegueApi[0].getPrenom(), collegueApi[0].getEmail(),
 				collegueApi[0].getDateNaissance(), collegueApi[0].getSexe(), collegueApi[0].getAdresse());
 		return collegue;
 	}
 
+	public boolean existCollegue(Collegue collegue) {
+
+		if (collRepo.findAll().contains(collegue)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public boolean existsByPseudo(String pseudo) {
+		if (collRepo.findAll().contains(collRepo.findByName(pseudo))) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 	public String saveCollegue(Collegue collegue) {
-		collRepo.save(collegue);
-		return "ok";
+		if (this.collRepo.existsByMatricule(collegue.getMatricule())) {
+			return "Collegue déjà existant";
+		} else {
+			this.collRepo.save(collegue);
+			return "Collegue Enregistré";
+		}
+
 	}
 
 }

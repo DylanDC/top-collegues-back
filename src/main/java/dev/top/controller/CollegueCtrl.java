@@ -3,6 +3,7 @@ package dev.top.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,7 +55,7 @@ public class CollegueCtrl {
 	}
 
 	// *************************************POST***********************************************
-	@PostMapping("/nouveau")
+	@PostMapping(path = "/nouveau", produces = MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> post(@RequestBody FormView form) {
 		Collegue newCol = this.collegueServ.findByMatricule(form.getMatricule());
 		newCol.setName(form.getPseudo());
